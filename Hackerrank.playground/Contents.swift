@@ -75,3 +75,35 @@ func plusMinus(arr: [Int]) {
 
 plusMinus(arr: [-4, 3, -9, 0, 4, 1])
 
+
+func findPhone(dic: [String: String]) {
+
+    dic.map { (k, v) in
+        print("\(k) = \(v.count > 0 ? v : "Not found")")
+    }
+}
+
+let phone = ["sam" : "99110022", "luana" : "110022", "maria" : ""]
+
+//findPhone(dic: phone)
+
+func sockMerchant(n: Int, ar: [Int]) -> Int {
+    var sorted = ar.sorted(by: { $0 < $1})
+    var socks = 1
+    var pairedSocks = 0
+
+    for i in 0...sorted.count-2 {
+        if sorted[i] == sorted[i+1] {
+            socks += 1
+        } else {
+            pairedSocks += socks / 2
+            socks = 0
+        }
+    }
+
+    print(pairedSocks)
+
+    return socks
+}
+
+//sockMerchant(n: 9, ar: [10, 20, 20, 10, 10, 30, 50, 10, 20])
